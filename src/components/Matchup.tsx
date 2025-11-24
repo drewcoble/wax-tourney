@@ -27,7 +27,7 @@ const Matchup = ({
       gap="xs"
       justify="center"
       p="md"
-      w="300px"
+      w="320px"
     >
       <Group>
         <Text fw={matchupWinner === 1 ? 'bold' : 'normal'}>
