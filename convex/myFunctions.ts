@@ -1,6 +1,5 @@
 import { v } from 'convex/values'
-import { action, mutation, query } from './_generated/server'
-import { api } from './_generated/api'
+import { mutation, query } from './_generated/server'
 
 // Write your Convex functions in any file inside this directory (`convex`).
 // See https://docs.convex.dev/functions for more.
@@ -14,7 +13,7 @@ export const listTeams = query({
   // Query implementation.
   handler: async (ctx, args) => {
     const teams = await ctx.db.query('teams')
-    // teams.filter((t) => t.eq(t.field('leagueId'), args.leagueId))
+    teams.filter((t) => t.eq(t.field('leagueId'), args.leagueId))
     return {
       teams: await teams.collect(),
     }
