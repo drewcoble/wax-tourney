@@ -6,7 +6,6 @@ import { Button, Card, Grid, Group, Stack, Text, Title } from '@mantine/core'
 import { IconArrowRight } from '@tabler/icons-react'
 import { useAuthActions } from '@convex-dev/auth/react'
 import { api } from '../../convex/_generated/api'
-import type { Id } from 'convex/_generated/dataModel'
 
 export const Route = createFileRoute('/')({
   component: Home,
@@ -17,7 +16,7 @@ function Home() {
     data: { teams },
   } = useSuspenseQuery(
     convexQuery(api.myFunctions.listTeams, {
-      leagueId: 'jh7aafsz2067gp5vz2efmc0svx7vwvy1' as Id<'leagues'>,
+      // leagueId: 'jh7aafsz2067gp5vz2efmc0svx7vwvy1' as Id<'leagues'>,
     }),
   )
 

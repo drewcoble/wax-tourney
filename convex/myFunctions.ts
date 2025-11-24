@@ -7,13 +7,13 @@ import { mutation, query } from './_generated/server'
 export const listTeams = query({
   // Validators for arguments.
   args: {
-    leagueId: v.id('leagues'),
+    // leagueId: v.id('leagues'),
   },
 
   // Query implementation.
-  handler: async (ctx, args) => {
+  handler: async (ctx) => {
     const teams = await ctx.db.query('teams')
-    teams.filter((t) => t.eq(t.field('leagueId'), args.leagueId))
+    // teams.filter((t) => t.eq(t.field('leagueId'), args.leagueId))
     return {
       teams: await teams.collect(),
     }
@@ -22,12 +22,14 @@ export const listTeams = query({
 
 export const listMatchups = query({
   // Validators for arguments.
-  args: { leagueId: v.id('leagues') },
+  args: {
+    // leagueId: v.id('leagues')
+  },
 
   // Query implementation.
-  handler: async (ctx, args) => {
+  handler: async (ctx) => {
     const matchups = await ctx.db.query('matchups')
-    matchups.filter((m) => m.eq(m.field('leagueId'), args.leagueId))
+    // matchups.filter((m) => m.eq(m.field('leagueId'), args.leagueId))
     return {
       matchups: await matchups.collect(),
     }

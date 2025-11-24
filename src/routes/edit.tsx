@@ -6,7 +6,6 @@ import { api } from 'convex/_generated/api'
 import { useState } from 'react'
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react'
 import { useConvexAuth, useMutation } from 'convex/react'
-import type { Id } from 'convex/_generated/dataModel'
 import type { Team } from '~/types/convexTypes'
 import BackButton from '~/components/BackButton'
 
@@ -19,7 +18,7 @@ function RouteComponent() {
     data: { teams },
   } = useSuspenseQuery(
     convexQuery(api.myFunctions.listTeams, {
-      leagueId: 'jh7aafsz2067gp5vz2efmc0svx7vwvy1' as Id<'leagues'>,
+      //   leagueId: 'jh7aafsz2067gp5vz2efmc0svx7vwvy1' as Id<'leagues'>,
     }),
   )
 

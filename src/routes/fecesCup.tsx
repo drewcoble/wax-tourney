@@ -3,7 +3,6 @@ import { useSuspenseQuery } from '@tanstack/react-query'
 import { createFileRoute } from '@tanstack/react-router'
 import { api } from 'convex/_generated/api'
 import { Grid } from '@mantine/core'
-import type { Id } from 'convex/_generated/dataModel'
 import BackButton from '~/components/BackButton'
 import MatchupsContent from '~/components/MatchupsContent'
 import StandingsContent from '~/components/StandingsContent'
@@ -17,14 +16,14 @@ function RouteComponent() {
     data: { teams },
   } = useSuspenseQuery(
     convexQuery(api.myFunctions.listTeams, {
-      leagueId: 'jh7aafsz2067gp5vz2efmc0svx7vwvy1' as Id<'leagues'>,
+      // leagueId: 'jh7aafsz2067gp5vz2efmc0svx7vwvy1' as Id<'leagues'>,
     }),
   )
   const {
     data: { matchups },
   } = useSuspenseQuery(
     convexQuery(api.myFunctions.listMatchups, {
-      leagueId: 'jh7aafsz2067gp5vz2efmc0svx7vwvy1' as Id<'leagues'>,
+      // leagueId: 'jh7aafsz2067gp5vz2efmc0svx7vwvy1' as Id<'leagues'>,
     }),
   )
 
