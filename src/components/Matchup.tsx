@@ -1,4 +1,4 @@
-import { Flex, Group, Stack } from '@mantine/core'
+import { Flex, Group, Stack, Text } from '@mantine/core'
 import type { Matchups, Teams } from '../types/convexTypes'
 
 const Matchup = ({
@@ -13,6 +13,12 @@ const Matchup = ({
   const teamOne = teams.find((t: any) => t._id.toString() === matchup[0].team1)
   const teamTwo = teams.find((t: any) => t._id.toString() === matchup[0].team2)
 
+  let matchupWinner =
+    (teamOne?.scores[week - 1] ?? 0) > (teamTwo?.scores[week - 1] ?? 0) ? 1 : 2
+  if ((teamOne?.scores[week - 1] ?? 0) === (teamTwo?.scores[week - 1] ?? 0)) {
+    matchupWinner = 0
+  }
+
   return (
     <Stack
       align="center"
@@ -24,8 +30,10 @@ const Matchup = ({
       w="300px"
     >
       <Group>
-        {teamOne?.rank}. {teamOne?.name} -{' '}
-        {teamOne?.scores[week - 1].toString()}
+        <Text fw={matchupWinner === 1 ? 'bold' : 'normal'}>
+          {teamOne?.rank}. {teamOne?.name} -{' '}
+          {teamOne?.scores[week - 1].toString()}
+        </Text>
       </Group>
       <Flex
         align="center"
@@ -40,8 +48,10 @@ const Matchup = ({
         vs.
       </Flex>
       <Group>
-        {teamTwo?.rank}. {teamTwo?.name} -{' '}
-        {teamTwo?.scores[week - 1].toString()}
+        <Text fw={matchupWinner === 2 ? 'bold' : 'normal'}>
+          {teamTwo?.rank}. {teamTwo?.name} -{' '}
+          {teamTwo?.scores[week - 1].toString()}
+        </Text>
       </Group>
     </Stack>
   )
