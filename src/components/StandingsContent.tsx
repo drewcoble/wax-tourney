@@ -20,7 +20,13 @@ const StandingsContent = ({
               <Title order={3}>{g.name}</Title>
               {teams
                 .filter((t) => t.group === g.num)
-                .sort((a, b) => a.wins - b.wins)
+                .sort(
+                  (a, b) =>
+                    b.scores.reduce((p, c) => p + c) -
+                    a.scores.reduce((p, c) => p + c),
+                )
+                .sort((a, b) => a.losses - b.losses)
+                .sort((a, b) => b.wins - a.wins)
                 .map((team) => (
                   <Text key={team._id.toString()}>
                     <strong>{team.rank}.</strong> {team.name} ({team.wins}-
