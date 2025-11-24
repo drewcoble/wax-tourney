@@ -45,7 +45,7 @@ const Matchup = ({
         c="white"
         fw="bold"
       >
-        vs.
+        vs
       </Flex>
       <Group>
         <Text fw={matchupWinner === 2 ? 'bold' : 'normal'}>
