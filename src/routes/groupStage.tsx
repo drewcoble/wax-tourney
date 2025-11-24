@@ -33,7 +33,7 @@ function RouteComponent() {
   ]
 
   return (
-    <Grid p="xl" gutter="md">
+    <Grid p={{ xs: 'xs', sm: 'xl' }} gutter="md">
       <BackButton />
       <StandingsContent groups={groups} teams={teams} />
       <MatchupsContent

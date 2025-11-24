@@ -25,7 +25,7 @@ function Home() {
   const { isAuthenticated } = useConvexAuth()
 
   return (
-    <Grid p="xl" gutter="md">
+    <Grid p={{ xs: 'xs', sm: 'xl' }} gutter="md">
       <Grid.Col span={12}>
         <Group justify="center">
           <Title order={1} mb="md">

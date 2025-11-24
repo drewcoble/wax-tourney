@@ -61,7 +61,7 @@ function RouteComponent() {
 
   if (!isAuthenticated && !isLoading) {
     return (
-      <Grid p="xl" gutter="md">
+      <Grid p={{ xs: 'xs', sm: 'xl' }} gutter="md">
         <BackButton />
         <Grid.Col span={12}>
           <Title order={2}>Unauthorized</Title>
@@ -72,7 +72,7 @@ function RouteComponent() {
   }
 
   return (
-    <Grid p="xl" gutter="md">
+    <Grid p={{ xs: 'xs', sm: 'xl' }} gutter="md">
       <BackButton />
 
       <Grid.Col span={12}>
